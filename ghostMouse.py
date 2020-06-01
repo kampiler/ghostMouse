@@ -1,18 +1,20 @@
 from time import sleep
 import pyautogui
 
+pyautogui.FAILSAFE=False
+
 dX=3
 iX=1
 iY=1
-sec=55
+delay=55
 
 maxX,maxY = pyautogui.size()
 
 
-while 1==1:
+while True:
       curX,curY = pyautogui.position()
 
-      print(curX,curY, "(",maxX,maxY,")","//",iX,iY)
+      print(f'current pos = {curX,curY}, screen={maxX,maxY}, dir={iX,iY}')#curX,curY, "(",maxX,maxY,")","//",iX,iY)
 
       curX=curX+dX*iX
       if(curX>maxX or curX<0): iX=-1*iX
@@ -22,5 +24,5 @@ while 1==1:
 
       pyautogui.moveTo(curX,curY)
 
-      sleep(sec)
+      sleep(delay)
 
